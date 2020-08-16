@@ -1,7 +1,7 @@
 <template>
 	<video id=vid1 ref="Player" height="540" class="vjs-default-skin" controls muted="muted">
     <source
-     src="https://logos-channel.scaleengine.net/logos-channel/live/biblescreen-ad-free/playlist.m3u8"
+     :src="`https://fra-cdn.livepeer.com/hls/${playbackId}/index.m3u8`"
      type="application/x-mpegURL"
     >
   </video>
@@ -315,7 +315,7 @@
         height: 400,
         autoplay: true,
         controls: true,
-        src: 'https://logos-channel.scaleengine.net/logos-channel/live/biblescreen-ad-free/playlist.m3u8',
+        src: `https://fra-cdn.livepeer.com/hls/${this.playbackId}/index.m3u8`,
         type: 'application/x-mpegURL',
         withCredentials: false,
         flash: { hls: { withCredentials: false }},
@@ -323,6 +323,11 @@
       });
 
       this.player.play();
+    },
+    data() {
+      return {
+        playbackId: 'vzxenjgjuc9bakgg',
+      };
     },
     // beforeDestroy() {
     //     if (this.player) {
